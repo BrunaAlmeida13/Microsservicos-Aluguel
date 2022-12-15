@@ -1,19 +1,19 @@
 package br.edu.infnet.appaluguel.modelo.resources.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
 @ToString
-public class AluguelDTO {
-    private Long clienteId;
+public class AluguelResponseDTO {
 
-    private List<EquipamentoDTO> equipamentos;
+    private ClienteDTO clienteDTO;
 
+    private List<EquipamentoDTO> listaEquipamentoDTO;
 }

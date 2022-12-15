@@ -1,7 +1,5 @@
 package br.edu.infnet.appaluguel.modelo.resources.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.*;
 
 

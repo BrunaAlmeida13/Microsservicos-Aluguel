@@ -16,7 +16,7 @@ public class ClienteResource {
     private ClienteService clienteService;
 
     @GetMapping("/{codigo}")
-    public Cliente getCliente(@PathVariable Long codigo){
-        return null;
+    public Cliente getCliente(@PathVariable Long codigo) {
+        return clienteService.getByCodigo(codigo);
     }
 }

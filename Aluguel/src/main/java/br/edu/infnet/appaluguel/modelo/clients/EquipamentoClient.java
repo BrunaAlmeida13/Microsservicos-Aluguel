@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @FeignClient("equipamento")
-public interface AluguelClient {
+public interface EquipamentoClient {
     @RequestMapping("/equipamentos")
     ResponseEntity<List<EquipamentoDTO>> getEquipamentos();
 }
