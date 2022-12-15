@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Aluguel/app-aluguel.iml" filepath="$PROJECT_DIR$/Aluguel/app-aluguel.iml" />
       <module fileurl="file://$PROJECT_DIR$/catalogo/catalogo.iml" filepath="$PROJECT_DIR$/catalogo/catalogo.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientes/clientes.iml" filepath="$PROJECT_DIR$/clientes/clientes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configserver/configserver.iml" filepath="$PROJECT_DIR$/configserver/configserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
     </modules>
   </component>
