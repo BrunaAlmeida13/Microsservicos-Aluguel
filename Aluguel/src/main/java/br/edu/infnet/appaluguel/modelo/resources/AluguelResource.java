@@ -5,6 +5,8 @@ import br.edu.infnet.appaluguel.modelo.resources.dto.AluguelDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.AluguelResponseDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.ClienteDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.EquipamentoDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/alugueis")
 public class AluguelResource {
+
+    private static Logger log = LoggerFactory.getLogger(AluguelResource.class);
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -30,14 +35,17 @@ public class AluguelResource {
 
     @PostMapping
     public AluguelResponseDTO alugaEquipamento(@RequestBody AluguelDTO aluguelDTO){
+        log.info("Solicitação para aluguel de equipamento | Descrição: {" + aluguelDTO + "}");
+
+        if(log.isDebugEnabled())
+            log.debug("Debug iniciado");
+
         ClienteDTO clienteDTO = restTemplate.getForObject(clienteApiUrl + aluguelDTO.getClienteId(),
                                 ClienteDTO.class);
 
-        ResponseEntity<List<EquipamentoDTO>> equipamentos = equipamentoClient.getEquipamentos();
+        log.info("Chamada da API de clientes realizada: " + clienteDTO);
 
-        System.out.println("Aluguel: " + aluguelDTO);
-        System.out.println("Equipamento pelo cliente" + equipamentoClient.getEquipamentos());
-        System.out.println("Equipamento corpo: " + equipamentos.getBody());
+        ResponseEntity<List<EquipamentoDTO>> equipamentos = equipamentoClient.getEquipamentos();
 
         return new AluguelResponseDTO(clienteDTO, equipamentos.getBody());
     }
