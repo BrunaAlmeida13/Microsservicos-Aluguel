@@ -19,6 +19,10 @@ public class GatewayApplication {
 		return builder.routes()
 				.route(p -> p
 						.path("/clientes/**")
+						.filters(f -> f.circuitBreaker(config -> config
+								.setName("mycmd")
+								.setFallbackUri("forward:/fallback"))
+						)
 						.uri("http://localhost:8082"))
 				.route(p -> p
 						.path("/equipamentos/**")
@@ -27,12 +31,19 @@ public class GatewayApplication {
 								.setFallbackUri("forward:/fallback"))
 						)
 						.uri("http://localhost:8083"))
+				.route(p -> p
+						.path("/alugueis/**")
+						.filters(f -> f.circuitBreaker(config -> config
+								.setName("mycmd")
+								.setFallbackUri("forward:/fallback")
+						))
+						.uri("http://localhost:8081"))
 				.build();
 	}
 
 	@RequestMapping("/fallback")
-	public String fallback(){
-		return "Sinto Muito... Tente novamente!";
+	public Mono<String> fallback(){
+		return Mono.just("Sinto Muito... Tente novamente mais tarde!");
 	}
 
 	public static void main(String[] args) {
