@@ -36,14 +36,15 @@ public class AluguelResource {
 
     @Operation(summary = "Método para aluguel de equipamento", description = "Endpoint para registro de aluguel")
     @PostMapping
-    public AluguelResponseDTO alugaEquipamento(@RequestBody AluguelDTO aluguelDTO){
+    public AluguelResponseDTO alugaEquipamento(@RequestBody AluguelDTO aluguelDTO) {
+        log.trace("TraceID");
         log.info("Solicitação para aluguel de equipamento | Descrição: {" + aluguelDTO + "}");
 
-        if(log.isDebugEnabled())
+        if (log.isDebugEnabled())
             log.debug("Debug iniciado");
 
         ClienteDTO clienteDTO = restTemplate.getForObject(clienteApiUrl + aluguelDTO.getClienteId(),
-                                ClienteDTO.class);
+                ClienteDTO.class);
 
         log.info("Chamada da API de clientes realizada: " + clienteDTO);
 
