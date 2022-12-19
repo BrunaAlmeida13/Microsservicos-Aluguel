@@ -63,6 +63,7 @@
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 			<version>3.1.5</version>
 		</dependency>
+
 		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
@@ -79,6 +80,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
