@@ -5,6 +5,7 @@ import br.edu.infnet.appaluguel.modelo.resources.dto.AluguelDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.AluguelResponseDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.ClienteDTO;
 import br.edu.infnet.appaluguel.modelo.resources.dto.EquipamentoDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class AluguelResource {
     @Autowired
     private EquipamentoClient equipamentoClient;
 
+    @Operation(summary = "Método para aluguel de equipamento", description = "Endpoint para registro de aluguel")
     @PostMapping
     public AluguelResponseDTO alugaEquipamento(@RequestBody AluguelDTO aluguelDTO){
         log.info("Solicitação para aluguel de equipamento | Descrição: {" + aluguelDTO + "}");
