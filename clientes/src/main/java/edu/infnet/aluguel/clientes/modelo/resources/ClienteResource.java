@@ -3,6 +3,7 @@ package edu.infnet.aluguel.clientes.modelo.resources;
 import edu.infnet.aluguel.clientes.modelo.entidades.Cliente;
 import edu.infnet.aluguel.clientes.modelo.services.ClienteService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ public class ClienteResource {
     private ClienteService clienteService;
 
 
+    @Operation(summary = "Método para buscar cliente", description = "Endpoint para buscar cliente por código (id)")
     @GetMapping("/clientes/{codigo}")
     public Cliente getCliente(@PathVariable Long codigo) {
         log.info("Chamada da API de cliente com código: [" + codigo + "]");

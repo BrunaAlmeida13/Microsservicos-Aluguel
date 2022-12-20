@@ -2,6 +2,7 @@ package br.edu.infnet.catalogo.modelo.resource;
 
 import br.edu.infnet.catalogo.modelo.entidades.Equipamento;
 import br.edu.infnet.catalogo.modelo.service.EquipamentoService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class EquipamentoResource {
     @Autowired
     private EquipamentoService equipamentoService;
 
+    @Operation(summary = "Método para buscar equipamentos", description = "Endpoint para buscar todos os equipamentos")
     @GetMapping
     public ResponseEntity<List<Equipamento>> getEquipamentos(){
         log.info("Chamada da API de equipamento");
